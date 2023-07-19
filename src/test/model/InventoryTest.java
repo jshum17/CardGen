@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryTest {
@@ -65,7 +67,22 @@ public class InventoryTest {
 
     @Test
     public void testSearchCardFailed() {
+        testInventory.addCard(c1);
         assertNull(testInventory.searchCard("Justin"));
+    }
+
+    @Test
+    public void testSearchCardEmpty() {
+        assertNull(testInventory.searchCard("Justin"));
+    }
+
+    @Test
+    public void testGetAllCards() {
+        testInventory.addCard(c1);
+        testInventory.addCard(c2);
+        List<Card> test = testInventory.getAllCards();
+        assertEquals(c1,test.get(0));
+        assertEquals(c2,test.get(1));
     }
 
 }
