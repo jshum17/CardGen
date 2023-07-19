@@ -16,8 +16,8 @@
 
 ### User Stories
 
-- [ ] As a user, I want to be able to create and add cards to my inventory.
-- [ ] As a user, I want to be able to remove cards from my inventory.
+- [x] As a user, I want to be able to create and add cards to my inventory.
+- [x] As a user, I want to be able to remove cards from my inventory.
 - [ ] As a user, I want to be able to edit and modify the attributes of my cards.
-- [ ] As a user, I want to be able to add a description to my cards.
-- [ ] As a user, I want to be able to view each card in my inventory.
+- [x] As a user, I want to be able to add a description to my cards.
+- [x] As a user, I want to be able to view each card in my inventory.

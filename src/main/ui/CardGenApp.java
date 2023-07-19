@@ -66,8 +66,7 @@ public class CardGenApp {
         System.out.println("\tq -> Quit");
     }
 
-    // MODIFIES:
-    // EFFECTS:
+    // EFFECTS: performs the tasks for adding a card to inventory
     private void doAddCard() {
         Card c = new Card(getCardInfo("Enter card name:"),
                 getCardAttribute("Enter first attribute", "Enter first attribute value"),
@@ -78,6 +77,7 @@ public class CardGenApp {
         myInventory.addCard(c);
     }
 
+    // EFFECTS: performs the tasks for removing a card from inventory
     private void doRemoveCard() {
         System.out.println("Enter the name of the card you want to remove:");
         String userInput;
@@ -92,6 +92,7 @@ public class CardGenApp {
         }
     }
 
+    // EFFECTS: performs the tasks for showing all cards in inventory
     private void doViewInventory() {
         if (myInventory.getAllCards().isEmpty()) {
             System.out.println("Your inventory is empty.");
@@ -101,10 +102,12 @@ public class CardGenApp {
         }
     }
 
+    // EFFECTS performs the tasks for saving the current inventory
     private void doSaveFile() {
 
     }
 
+    // EFFECTS: returns the info inputted by the user
     private String getCardInfo(String field) {
         System.out.println(field);
         String userInput;
@@ -112,21 +115,8 @@ public class CardGenApp {
         return userInput;
     }
 
-    private String getCardAttributeName(String field) {
-        System.out.println(field);
-        String userInput;
-        userInput = input.next();
-        return userInput;
-    }
-
-    private String getCardAttributeValue(String field) {
-        System.out.println(field);
-        String userInput;
-        userInput = input.next();
-        return userInput;
-    }
-
+    // EFFECTS: returns the attribute according to info inputted by the user
     private Attribute getCardAttribute(String name, String value) {
-        return new Attribute(getCardAttributeName(name), getCardAttributeValue(value));
+        return new Attribute(getCardInfo(name), getCardInfo(value));
     }
 }

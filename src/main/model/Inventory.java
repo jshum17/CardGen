@@ -8,14 +8,21 @@ public class Inventory {
 
     private ArrayList<Card> myCards;
 
+    // EFFECTS: constructs an inventory with an empty ArrayList of cards
     public Inventory() {
         myCards = new ArrayList<>();
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds the given card to the list of cards
     public void addCard(Card c) {
         myCards.add(c);
     }
 
+    // REQUIRES no duplicate cards in list of cards
+    // MODIFIES: this
+    // EFFECTS: if the given card is found in the list of cards, removes the given card from the list of cards
+    //          and returns true. Otherwise, return false
     public boolean removeCard(Card c) {
         if (myCards.contains(c)) {
             myCards.remove(c);
@@ -25,6 +32,8 @@ public class Inventory {
         }
     }
 
+    // REQUIRES no duplicate card names in list of cards
+    // EFFECTS: returns the item that matches the given name. If no item exists, return null
     public Card searchCard(String name) {
         for (Card c : myCards) {
             if (c.getName().equals(name)) {
@@ -34,10 +43,14 @@ public class Inventory {
         return null;
     }
 
+    // getters
+
+    //EFFECTS: returns a list of all the cards
     public List<Card> getAllCards() {
         return myCards;
     }
 
+    //EFFECTS: returns the size of the list
     public int getSize() {
         return myCards.size();
     }
