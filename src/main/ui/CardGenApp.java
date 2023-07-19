@@ -1,5 +1,7 @@
 package ui;
 
+import model.Attribute;
+import model.Card;
 import model.Inventory;
 
 import java.util.Scanner;
@@ -67,18 +69,64 @@ public class CardGenApp {
     // MODIFIES:
     // EFFECTS:
     private void doAddCard() {
-        System.out.println("Enter Card Name:");
+        Card c = new Card(getCardInfo("Enter card name:"),
+                getCardAttribute("Enter first attribute", "Enter first attribute value"),
+                getCardAttribute("Enter second attribute", "Enter second attribute value"),
+                getCardAttribute("Enter third attribute", "Enter third attribute value"),
+                getCardInfo("Enter card description"));
+
+        myInventory.addCard(c);
     }
 
     private void doRemoveCard() {
+        System.out.println("Enter the name of the card you want to remove:");
+        String userInput;
+        userInput = input.next();
 
+        Card c = myInventory.searchCard(userInput);
+        if (myInventory.removeCard(c)) {
+            myInventory.removeCard(c);
+            System.out.println(userInput + " has been removed");
+        } else {
+            System.out.println("There is no card with the name: " + userInput);
+        }
     }
 
     private void doViewInventory() {
-
+        if (myInventory.getAllCards().isEmpty()) {
+            System.out.println("Your inventory is empty.");
+        }
+        for (Card c: myInventory.getAllCards()) {
+            System.out.println(c.getName());
+        }
     }
 
     private void doSaveFile() {
 
+    }
+
+    private String getCardInfo(String field) {
+        System.out.println(field);
+        String userInput;
+        userInput = input.next();
+        return userInput;
+    }
+
+    private String getCardAttributeName(String field) {
+        System.out.println(field);
+        String userInput;
+        userInput = input.next();
+        return userInput;
+    }
+
+    private String getCardAttributeValue(String field) {
+        System.out.println(field);
+        String userInput;
+        userInput = input.next();
+        return userInput;
+    }
+
+    private Attribute getCardAttribute(String name, String value) {
+        return new Attribute(getCardAttributeName(name), getCardAttributeValue(value));
     }
 }
