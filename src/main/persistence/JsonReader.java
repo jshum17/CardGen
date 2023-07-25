@@ -33,7 +33,7 @@ public class JsonReader {
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
-        try (Stream<String> stream = Files.lines( Paths.get(source), StandardCharsets.UTF_8)) {
+        try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
             stream.forEach(s -> contentBuilder.append(s));
         }
 
@@ -68,9 +68,9 @@ public class JsonReader {
         String attributeThreeName = jsonObject.getString("attributeThreeName");
         String attributeThreeValue = jsonObject.getString("attributeThreeValue");
         String description = jsonObject.getString("description");
-        Attribute attributeOne = new Attribute(attributeOneName,attributeOneValue);
-        Attribute attributeTwo = new Attribute(attributeTwoName,attributeTwoValue);
-        Attribute attributeThree = new Attribute(attributeThreeName,attributeThreeValue);
+        Attribute attributeOne = new Attribute(attributeOneName, attributeOneValue);
+        Attribute attributeTwo = new Attribute(attributeTwoName, attributeTwoValue);
+        Attribute attributeThree = new Attribute(attributeThreeName, attributeThreeValue);
         Card card = new Card(name, attributeOne, attributeTwo, attributeThree, description);
         inv.addCard(card);
     }
