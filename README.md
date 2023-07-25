@@ -21,5 +21,5 @@
 - [ ] As a user, I want to be able to edit and modify the attributes of my cards.
 - [x] As a user, I want to be able to add a description to my cards.
 - [x] As a user, I want to be able to view each card in my inventory.
-- [] As a user, I want to be able to save all current app data.
-- [] As a user, I want to be able to load a saved app state.
+- [x] As a user, I want to be able to save all current app data.
+- [x] As a user, I want to be able to load a saved app state.
