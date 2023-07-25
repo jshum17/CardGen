@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents an inventory where all the cards will be stored
-public class Inventory {
+public class Inventory implements Writable {
 
     private ArrayList<Card> myCards;
 
@@ -53,5 +57,23 @@ public class Inventory {
     //EFFECTS: returns the size of the list
     public int getSize() {
         return myCards.size();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Cards", itemsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns items in this Inventory as a JSON array
+    private JSONArray itemsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Card c : myCards) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
     }
 }

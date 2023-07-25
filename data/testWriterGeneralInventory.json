@@ -1,0 +1,22 @@
+{"Cards": [
+  {
+    "attributeOneName": "Health",
+    "attributeOneValue": "100",
+    "attributeTwoName": "Speed",
+    "attributeTwoValue": "99",
+    "attributeThreeName": "Attack",
+    "attributeThreeValue": "4",
+    "name": "David",
+    "description": "David is handsome"
+  },
+  {
+    "attributeOneName": "Health",
+    "attributeOneValue": "100",
+    "attributeTwoName": "Speed",
+    "attributeTwoValue": "98",
+    "attributeThreeName": "Attack",
+    "attributeThreeValue": "3",
+    "name": "Justin",
+    "description": "Justin is dumb"
+  }
+]}

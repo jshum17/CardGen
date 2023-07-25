@@ -3,17 +3,26 @@ package ui;
 import model.Attribute;
 import model.Card;
 import model.Inventory;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // CashGen Application
 public class CardGenApp {
+    private static final String JSON_STORE = "./data/inventory.json";
     private Scanner input;
     private Inventory myInventory;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // MODIFIES: this
     // EFFECTS: processes user input
     public void runCardGen() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         boolean keepGoing = true;
         String command = null;
 
@@ -21,7 +30,7 @@ public class CardGenApp {
 
         while (keepGoing) {
             displayMenu();
-            command = input.next();
+            command = input.nextLine();
             command = command.toLowerCase();
 
             if (command.equals("q")) {
@@ -43,7 +52,9 @@ public class CardGenApp {
         } else if (command.equals("e")) {
             doViewInventory();
         } else if (command.equals("s")) {
-            doSaveFile();
+            saveCards();
+        } else if (command.equals("l")) {
+            loadCards();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -63,6 +74,7 @@ public class CardGenApp {
         System.out.println("\tr -> Remove a card");
         System.out.println("\te -> View inventory");
         System.out.println("\ts-> Save file");
+        System.out.println("\tl-> Load file");
         System.out.println("\tq -> Quit");
     }
 
@@ -81,7 +93,7 @@ public class CardGenApp {
     private void doRemoveCard() {
         System.out.println("Enter the name of the card you want to remove:");
         String userInput;
-        userInput = input.next();
+        userInput = input.nextLine();
 
         Card c = myInventory.searchCard(userInput);
         if (myInventory.removeCard(c)) {
@@ -102,18 +114,37 @@ public class CardGenApp {
         }
     }
 
-    // EFFECTS performs the tasks for saving the current inventory
-    private void doSaveFile() {
+    // EFFECTS: saves the cards to file
+    private void saveCards() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myInventory);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
 
+    // MODIFIES: this
+    // EFFECTS: loads cards from file
+    private void loadCards() {
+        try {
+            myInventory = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
     // EFFECTS: returns the info inputted by the user
     private String getCardInfo(String field) {
         System.out.println(field);
         String userInput;
-        userInput = input.next();
+        userInput = input.nextLine();
         return userInput;
     }
+
 
     // EFFECTS: returns the attribute according to info inputted by the user
     private Attribute getCardAttribute(String name, String value) {
