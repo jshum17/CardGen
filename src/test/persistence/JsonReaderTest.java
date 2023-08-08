@@ -1,6 +1,7 @@
 package persistence;
 
 
+import exception.CardRestrictionException;
 import model.Attribute;
 import model.Card;
 import model.Inventory;

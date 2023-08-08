@@ -1,5 +1,6 @@
 package model;
 
+import exception.CardRestrictionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.Attr;
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CardTest {
     private Card testCard;
+    private Card testCard2;
     private Attribute a1;
     private Attribute a2;
     private Attribute a3;
@@ -20,6 +22,7 @@ public class CardTest {
         a3 = new Attribute("Attack", "99");
         desc = "David is a fierce fighter.";
         testCard = new Card("David", a1, a2, a3, desc);
+        testCard2 = new Card("", a1, a2, a3, desc);
     }
 
     @Test
@@ -29,6 +32,15 @@ public class CardTest {
         assertEquals(a2,testCard.getAttributeTwo());
         assertEquals(a3,testCard.getAttributeThree());
         assertEquals(desc, testCard.getDescription());
+    }
+
+    @Test
+    public void testCardRestrictions() {
+        try {
+            testCard2.addCardRestrictions();
+        } catch (CardRestrictionException e) {
+            // expected
+        }
     }
 
 }

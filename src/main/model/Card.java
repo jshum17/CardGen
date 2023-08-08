@@ -1,5 +1,6 @@
 package model;
 
+import exception.CardRestrictionException;
 import org.json.JSONObject;
 import persistence.Writable;
 
@@ -45,6 +46,13 @@ public class Card implements Writable {
     // EFFECTS: returns the description of the card
     public String getDescription() {
         return this.description;
+    }
+
+    // EFFECTS: throws card restriction if card is missing the required fields
+    public void addCardRestrictions() throws CardRestrictionException {
+        if (name.equals("")) {
+            throw new CardRestrictionException();
+        }
     }
 
     @Override
