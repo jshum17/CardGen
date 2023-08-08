@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.w3c.dom.Attr;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CardTest {
     private Card testCard;
@@ -32,6 +33,24 @@ public class CardTest {
         assertEquals(a2,testCard.getAttributeTwo());
         assertEquals(a3,testCard.getAttributeThree());
         assertEquals(desc, testCard.getDescription());
+    }
+
+    @Test
+    public void testCardRestrictionsPass() {
+        try {
+            testCard2.addCardRestrictions();
+        } catch (CardRestrictionException e) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testCardRestrictionsFail() {
+        try {
+            testCard.addCardRestrictions();
+        } catch (CardRestrictionException e) {
+            fail();
+        }
     }
 
 }
