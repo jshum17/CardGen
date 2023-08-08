@@ -23,3 +23,11 @@
 - [x] As a user, I want to be able to view each card in my inventory.
 - [x] As a user, I want to be able to save all current app data.
 - [x] As a user, I want to be able to load a saved app state.
+
+### Instructions for Grader
+
+- You can generate the first required action (adding) related to adding Xs to a Y by clicking the "Add Card" button, then filling in the Name, Attribute and Description text fields and clicking the "Add" button.
+- You can generate the second required action (removing) related to adding Xs to a Y by clicking the "View Inventory" button then selecting the card to remove from the list and click the "Remove" button.
+- You can locate my visual component from the application's background as well as clicking the "View" button in the inventory after creating a card.
+- You can save the state of my application by clicking the "Save" button
+- You can reload the state of my application by clicking the "Load" button

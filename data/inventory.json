@@ -1,10 +1,22 @@
-{"Cards": [{
-    "attributeTwoName": "Speed",
-    "attributeThreeValue": "39",
-    "attributeOneName": "Health",
-    "attributeThreeName": "Attack",
-    "name": "David Hong",
-    "attributeOneValue": "100",
-    "description": "david is handsome",
-    "attributeTwoValue": "99"
-}]}
+{"Cards": [
+    {
+        "attributeTwoName": "test",
+        "attributeThreeValue": "100",
+        "attributeOneName": "test",
+        "attributeThreeName": "test",
+        "name": "test",
+        "attributeOneValue": "100",
+        "description": "testing",
+        "attributeTwoValue": "100"
+    },
+    {
+        "attributeTwoName": "Speed ",
+        "attributeThreeValue": "0",
+        "attributeOneName": "Attack",
+        "attributeThreeName": "Cursed Energy",
+        "name": "Toji Fushiguro",
+        "attributeOneValue": "100",
+        "description": "Known as the Sorcerer Killer. Toji is the father of Megumi Fushiguro and former enemy of Gojo Satoru.",
+        "attributeTwoValue": "100"
+    }
+]}
