@@ -34,13 +34,4 @@ public class CardTest {
         assertEquals(desc, testCard.getDescription());
     }
 
-    @Test
-    public void testCardRestrictions() {
-        try {
-            testCard2.addCardRestrictions();
-        } catch (CardRestrictionException e) {
-            // expected
-        }
-    }
-
 }

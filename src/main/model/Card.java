@@ -48,13 +48,6 @@ public class Card implements Writable {
         return this.description;
     }
 
-    // EFFECTS: throws card restriction if card is missing the required fields
-    public void addCardRestrictions() throws CardRestrictionException {
-        if (name.equals("")) {
-            throw new CardRestrictionException();
-        }
-    }
-
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
