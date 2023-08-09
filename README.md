@@ -1,14 +1,14 @@
 # CardGen
 
-## A trading card generator 
+## A collectible card generator 
 
 > **What will the application do?**
-> - Create customizable trading cards with description and attributes
+> - Create customizable collectible cards with description and attributes
 > - View all cards created
 > - Search for a card
 
 > **Who will use it?**
-> - For any enthusiastic trading card collectors
+> - For any enthusiastic collectible card collectors
 > - For those who want to turn their favourite character into a collectible card
 
 > **Why is this project of interest to you?**
@@ -31,3 +31,19 @@
 - You can locate my visual component from the application's background as well as clicking the "View" button in the inventory after creating a card.
 - You can save the state of my application by clicking the "Save" button
 - You can reload the state of my application by clicking the "Load" button
+
+### Phase 4: Task 2
+```
+Wed Aug 09 00:00:04 PDT 2023
+A Card has been added
+Wed Aug 09 00:00:07 PDT 2023
+A Card has been searched and returned
+Wed Aug 09 00:00:10 PDT 2023
+A Card has been searched and returned
+Wed Aug 09 00:00:10 PDT 2023
+A Card has been removed
+```
+
+### Phase 4: Task 3
+
+- A refactoring design that comes to my mind after reflecting on my UML diagram is to refactor each component of my GUI class into their own classes. By splitting each component apart, instead of having a cluster of different methods in one big GUI class, each component will be able to serve their own responsibility in their own respective class. Each component can update and access each other through a bidirectional relationship to the main GUI class. This will greatly increase the cohesion of the program and improve the readability of the main GUI class.

@@ -21,6 +21,7 @@ public class Inventory implements Writable {
     // EFFECTS: adds the given card to the list of cards
     public void addCard(Card c) {
         myCards.add(c);
+        EventLog.getInstance().logEvent(new Event("A Card has been added"));
     }
 
     // REQUIRES no duplicate cards in list of cards
@@ -30,6 +31,7 @@ public class Inventory implements Writable {
     public boolean removeCard(Card c) {
         if (myCards.contains(c)) {
             myCards.remove(c);
+            EventLog.getInstance().logEvent(new Event("A Card has been removed"));
             return true;
         } else {
             return false;
@@ -41,6 +43,7 @@ public class Inventory implements Writable {
     public Card searchCard(String name) {
         for (Card c : myCards) {
             if (c.getName().equals(name)) {
+                EventLog.getInstance().logEvent(new Event("A Card has been searched and returned"));
                 return c;
             }
         }

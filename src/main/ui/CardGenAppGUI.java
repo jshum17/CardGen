@@ -3,6 +3,7 @@ package ui;
 import exception.CardRestrictionException;
 import model.Attribute;
 import model.Card;
+import model.EventLog;
 import model.Inventory;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -86,6 +87,7 @@ public class CardGenAppGUI extends JFrame {
     // EFFECTS: Sets the layout of the main frame and all the panels
     public CardGenAppGUI() {
         frame.setResizable(false);
+        printLogToConsole();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setHomeScreen();
@@ -612,4 +614,16 @@ public class CardGenAppGUI extends JFrame {
             throw new CardRestrictionException();
         }
     }
+
+    public void printLogToConsole() {
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                LogPrinter lp = new LogPrinter();
+                lp.printLog(EventLog.getInstance());
+                e.getWindow().dispose();
+            }
+        });
+    }
+    
 }
