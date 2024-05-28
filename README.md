@@ -47,3 +47,15 @@ A Card has been removed
 ### Phase 4: Task 3
 
 - A refactoring design that comes to my mind after reflecting on my UML diagram is to refactor each component of my GUI class into their own classes. By splitting each component apart, instead of having a cluster of different methods in one big GUI class, each component will be able to serve their own responsibility in their own respective class. Each component can update and access each other through a bidirectional relationship to the main GUI class. This will greatly increase the cohesion of the program and improve the readability of the main GUI class.
+
+### Demo
+
+<div>
+    <img src = "demo/demo 1.png" width = "300">
+    <img src = "demo/demo 2.png" width = "300">
+</div>
+
+<div>
+    <img src = "demo/demo 3.png" width = "300">
+    <img src = "demo/demo 4.png" width = "300">
+</div>
